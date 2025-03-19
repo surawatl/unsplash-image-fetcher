@@ -65,19 +65,19 @@ const IndexPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 text-center">
-      <h1 className="text-3xl font-bold text-center mb-6">Unsplash</h1>
-      <form onSubmit={handleSearch} className="flex justify-center mb-6">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 text-center">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">Unsplash Image Fetcher</h1>
+      <form onSubmit={handleSearch} className="flex flex-col sm:flex-row justify-center mb-4 sm:mb-6 gap-2">
         <input
           type="text"
           placeholder="Search for images..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="border border-gray-300 rounded-l px-4 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded px-4 py-2 w-full sm:w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Search
         </button>
@@ -94,7 +94,7 @@ const IndexPage = () => {
       {isShowLoadMore && (
         <button
           onClick={loadMorePage}
-          className="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="mt-4 sm:mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Load More
         </button>
@@ -103,7 +103,7 @@ const IndexPage = () => {
       {/* Modal for Selected Image */}
       {isModalOpen && selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded shadow-lg max-w-lg w-full">
+          <div className="bg-white p-4 rounded shadow-lg max-w-sm sm:max-w-lg w-full">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -122,8 +122,8 @@ const IndexPage = () => {
       {/* Modal for No Result */}
       {noResultModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded shadow-lg max-w-sm w-full text-center">
-            <p className="text-lg font-semibold text-gray-700">No result found</p>
+          <div className="bg-white p-4 rounded shadow-lg max-w-xs sm:max-w-sm w-full text-center">
+            <p className="text-base sm:text-lg font-semibold text-gray-700">No result found</p>
             <button
               onClick={closeNoResultModal}
               className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
