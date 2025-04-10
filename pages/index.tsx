@@ -17,8 +17,9 @@ const IndexPage = () => {
     setLoading(true);
     setError(null);
     try {
+      const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID; // Get client ID from env
       const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=EkyVzvI4AZA4V3Ir-Ze76PmV2N3xwMCZ6t54N2bskBE&per_page=8&page=${page}`
+        `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=${clientId}&per_page=8&page=${page}`
       );
       if (!response.ok) {
         throw new Error('Failed to fetch images');
